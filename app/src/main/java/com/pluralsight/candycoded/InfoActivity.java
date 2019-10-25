@@ -48,8 +48,6 @@ public class InfoActivity extends AppCompatActivity {
         Uri phone = Uri.parse(PHONE_NUMBER);
         phoneIntent.setData(phone);
 
-        if (phoneIntent.resolveActivity(getPackageManager()) != null) {
-            startActivity(phoneIntent);
-        }
+        startActivity(phoneIntent);
     }
 }
