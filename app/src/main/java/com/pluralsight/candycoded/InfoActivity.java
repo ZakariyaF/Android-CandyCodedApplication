@@ -13,6 +13,7 @@ public class InfoActivity extends AppCompatActivity {
 
     private final static String STORE_GEOLOCATION = "geo:0,0?q=618 E South St Orlando, FL 32801";
     private final static String INTENT_PACKAGE = "com.google.android.apps.maps";
+    private static final String PHONE_NUMBER = "tel:0123456789";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,4 +43,13 @@ public class InfoActivity extends AppCompatActivity {
     // ***
     // TODO - Task 3 - Launch the Phone Activity
     // ***
+    public void createPhoneIntent(View view) {
+        Intent phoneIntent = new Intent(Intent.ACTION_DIAL);
+        Uri phone = Uri.parse(PHONE_NUMBER);
+        phoneIntent.setData(phone);
+
+        if (phoneIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(phoneIntent);
+        }
+    }
 }
